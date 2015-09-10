@@ -1,0 +1,31 @@
+{
+  "name": "taskrunner",
+  "version": "0.1.0",
+  "description": "Taskrunner for projects more complex than a single page app",
+  "private": "true",
+  "homepage": "http://www.zerve.com",
+  "bin": {
+    "zerve" : "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:zerve_coreyholland/taskrunner.git"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "underscore" : "latest",
+    "fs-extra"   : "latest",
+    "minimist"   : "latest",
+    "findit"     : "latest",
+    "uglify-js"  : "latest",
+    "less"       : "latest",
+    "copy"       : "latest",
+    "watch"      : "latest",
+    "chalk"      : "latest",
+    "esprima"    : "latest"
+  },
+  "scripts": {
+  }
+}
