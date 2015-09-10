@@ -15,16 +15,16 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
-    "underscore" : "latest",
-    "fs-extra"   : "latest",
-    "minimist"   : "latest",
-    "findit"     : "latest",
-    "uglify-js"  : "latest",
-    "less"       : "latest",
-    "copy"       : "latest",
-    "watch"      : "latest",
-    "chalk"      : "latest",
-    "esprima"    : "latest"
+    "underscore" : "~1.8.3",
+    "fs-extra"   : "~0.24.0",
+    "minimist"   : "~1.2.0",
+    "findit"     : "~2.0.0",
+    "uglify-js"  : "~2.4.24",
+    "less"       : "~2.5.1",
+    "copy"       : "~0.1.1",
+    "watch"      : "~0.16.0",
+    "chalk"      : "~1.1.1",
+    "esprima"    : "~2.6.0"
   },
   "scripts": {
   }
