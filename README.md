@@ -2,6 +2,8 @@
 
 **Version**: 0.1.0
 
+* * *
+
 [Installation](#markdown-header-installation) | [File Structure](#markdown-header-file-structure) | [Usage](#markdown-header-usage) | [Issues](#markdown-header-issues)
 
 * * *
