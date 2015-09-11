@@ -1,6 +1,6 @@
 # Zerve TaskRunner (to be named)
 
-**Version**: 0.1.0
+**Version**: 0.1.1
 
 * * *
 
@@ -10,34 +10,49 @@
 
 ## Installation
 
-##### Install **nvm** Node Version Manager ([more info on install](https://github.com/creationix/nvm#install-script)):
-*First you'll need to make sure your system has a c++ compiler. For OSX, XCode will work, for Ubuntu, the build-essential and libssl-dev packages work.*
-```sh
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
-```
-
-##### Install **node** ([more info on using nvm](https://github.com/creationix/nvm#usage)):
-
-```sh
-nvm install stable
-nvm use stable
-```
-
-###### Pro-tip: To set a default Node version to be used in any new shell, use the alias 'default':
-
-```sh
-nvm alias default stable
-```
-
 **The following assumes you have a package.json in your project. If you need help, [see here](https://docs.npmjs.com/getting-started/installing-npm-packages-locally#using-package-json-and-the-save-flag). More info on [package.json](https://docs.npmjs.com/files/package.json).**
 
 ##### Install this taskrunner:
 
 ```sh
-npm install bitbucket:zerveinc/taskrunner#v0.1.0 --save-dev
+npm install git+ssh://bitbucket/zerveinc/taskrunner.git#v0.1.1 --save-dev
 ```
 
 *If you get an `EACCES` error: [check this page for help](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-1-change-the-permission-to-npm-s-default-directory)*
+
+*If your `node -v` is less than v4: [click here for more info](#markdown-header-node-issues)*
+
+* * *
+
+## Usage
+
+```sh
+zerve <command> [options] [args]
+```
+###### Commands
+
+One of the below commands can be run at a time.
+
+Build: `build` or `b`
+
+Watch: `watch` or `w` - *still in development*
+
+Deploy: `deploy` or `d` - *planned*
+
+###### Options
+
+Production: `-P` *case sensitive* -  Will flag *production* as true and will
+modify the output. It will compress the compiled javascript. Adjust the urls in stylesheets.
+
+Version: `-v` or `--version`
+
+###### Args
+
+Project: `--project=[project name]` or `-p=[project name]` *case sensitive* -
+Where *[project name]* is the same as the name of the project folder. Can be
+used with *build* and *watch*.
+
+Help: `--help` - For now will provide you with the link to this page.
 
 * * *
 
@@ -97,40 +112,12 @@ defined in configuration.
 
 * * *
 
-## Usage
-
-```sh
-zerve <command> [options] [args]
-```
-###### Commands
-
-One of the below commands can be run at a time.
-
-Build: `build` or `b`
-
-Watch: `watch` or `w` - *still in development*
-
-Deploy: `deploy` or `d` - *planned*
-
-###### Options
-
-Production: `-P` *case sensitive* -  Will flag *production* as true and will
-modify the output. It will compress the compiled javascript. Adjust the urls in stylesheets.
-
-###### Args
-
-Project: `--project=[project name]` or `-p=[project name]` *case sensitive* -
-Where *[project name]* is the same as the name of the project folder. Can be
-used with *build* and *watch*.
-
-Help: `--help` - For now will provide you with the link to this page.
-
-* * *
-
 ## Issues?
 
 If you run into any issues, please go here and document them:
 [Zerve Taskrunner Issues](https://bitbucket.org/zerve_coreyholland/taskrunner/issues)
+
+Please make sure your node version is up to date.
 
 ## Roadmap
 
@@ -148,3 +135,26 @@ See feature plans & proposals here:
 ## Dependencies
 
 chalk, copy, esprima, findit, fs-extra, less, minimist, uglify-js, underscore, watch
+
+## Node Issues
+
+### Installing or updating node
+
+##### Install **nvm** Node Version Manager ([more info on install](https://github.com/creationix/nvm#install-script)):
+*First you'll need to make sure your system has a c++ compiler. For OSX, XCode will work, for Ubuntu, the build-essential and libssl-dev packages work.*
+```sh
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+```
+
+##### Install **node** ([more info on using nvm](https://github.com/creationix/nvm#usage)):
+
+```sh
+nvm install stable
+nvm use stable
+```
+
+###### Pro-tip: To set a default Node version to be used in any new shell, use the alias 'default':
+
+```sh
+nvm alias default stable
+```

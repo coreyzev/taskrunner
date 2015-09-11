@@ -19,6 +19,10 @@ if (z.help) {
     );
     process.exit(1);
 };
+if (z.version) {
+    console.log('v' + require('./package.json').version);
+    process.exit(1);
+};
 
 config.generateFiletree();
 config.copyVendorCode();
