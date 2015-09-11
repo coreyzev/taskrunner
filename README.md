@@ -130,14 +130,12 @@ Help: `--help` - For now will provide you with the link to this page.
 ## Issues?
 
 If you run into any issues, please go here and document them:
-
-[https://bitbucket.org/zerve_coreyholland/taskrunner/issues](https://bitbucket.org/zerve_coreyholland/taskrunner/issues)
+[Zerve Taskrunner Issues](https://bitbucket.org/zerve_coreyholland/taskrunner/issues)
 
 ## Roadmap
 
 See feature plans & proposals here:
-
-[https://bitbucket.org/zerveinc/taskrunner/issues?kind=proposal&kind=enhancement&sort=milestone](https://bitbucket.org/zerveinc/taskrunner/issues?kind=proposal&kind=enhancement&sort=milestone)
+[Proposals & Enhancements](https://bitbucket.org/zerveinc/taskrunner/issues?kind=proposal&kind=enhancement&sort=milestone)
 
 * * *
 
