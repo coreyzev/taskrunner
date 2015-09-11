@@ -134,16 +134,8 @@ If you run into any issues, please go here and document them:
 
 ## Roadmap
 
-* convert roadmap to issues (features)
-* watcher
-* convert to chalk themes
-* add [config].js config file (Or arguments on cli?)
-* automate copying vendor code to public
-* validation
-* testing
-* git flow control
-* jira flow control
-
+See feature plans & proposals here:
+[https://bitbucket.org/zerveinc/taskrunner/issues?kind=proposal&kind=enhancement](https://bitbucket.org/zerveinc/taskrunner/issues?kind=proposal&kind=enhancement)
 * * *
 
 ## Requires
