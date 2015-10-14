@@ -1,6 +1,6 @@
 # Zerve TaskRunner (to be named)
 
-**Version**: 0.1.1
+**Version**: 0.1.2
 
 * * *
 
@@ -15,7 +15,7 @@
 ##### Install this taskrunner:
 
 ```sh
-npm install git+ssh://bitbucket/zerveinc/taskrunner.git#v0.1.1 --save-dev
+npm install git+ssh://bitbucket/zerveinc/taskrunner.git#v0.1.2 --save-dev
 ```
 
 *If you get an `EACCES` error: [check this page for help](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-1-change-the-permission-to-npm-s-default-directory)*
