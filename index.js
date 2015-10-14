@@ -4,7 +4,9 @@ var z      = require('./lib/environment'),
     Config = require('./lib/config'),
     Build  = require('./lib/build'),
     Watch  = require('./lib/watch'),
-    chalk  = require('chalk');
+    chalk  = require('chalk'),
+    spawn   = require('child_process').spawn,
+    prompt = require('prompt');
 
 var config = new Config(),
     build  = new Build(),
@@ -38,8 +40,42 @@ config.on('done', function() {
             watch.all(z.project);
             break;
         case 'deploy':
-            console.log('\nWe are also looking forward to the deploy feature. Thanks!\n');
-            process.exit(1);
+            var schema = {
+                properties: {
+                    aws_prefix: {
+                        pattern: /^[a-z]{2}$/,
+                        message: 'Should be 2 letters, lowercase.' + chalk.cyan(' e.g. "ca"'),
+                        required: true
+                    }
+                }
+            };
+            prompt.message = "Input needed ";
+            prompt.start();
+            prompt.get(schema, function (err, result) {
+                if (err) { process.exit(1); }
+                var prefix = 'prefix=' + result.aws_prefix;
+                var confirm = 'confirm=y';
+                var cap_cleanup = spawn('cap', ['deploy:cleanup', prefix, confirm], {stdio: 'inherit'});
+                console.log("\nplease wait while we use capistrano to deploy\n");
+                function cap_deploy_spawn () {
+                    var cap_deploy = spawn('cap', ['deploy', prefix, confirm], {stdio: 'inherit'});
+                    cap_deploy.on('close', function(code) {
+                        if (code) {
+                            console.log(chalk.red('There was an error with the deploy.'));
+                            process.exit(1);
+                        }
+                        console.log('\nThe deploy to aws.dev.' + result.aws_prefix + ' was successful.');
+                        process.exit(0);
+                    });
+                };
+                cap_cleanup.on('close', function(code) {
+                    if (code) {
+                        console.log(chalk.red('There was an error with the cleanup.'));
+                        process.exit(1);
+                    }
+                    cap_deploy_spawn();
+                });
+            });
             break;
         default:
             console.log('\nThanks for using the zerve cli.\n');
@@ -51,9 +87,10 @@ config.on('done', function() {
 process.on('exit', function (exitCode) {
     if (!exitCode) {
         // console.log(z.filetree);
-        var uptime = chalk.blue.bgWhite(' This task took ' + process.uptime() * 1000 + '\u03BCs. ');
-        var line = Array(Math.floor(uptime.length / 1.5)).join('-');
-        line = chalk.blue('\n' + line + '\n');
-        console.log(line, uptime, line);
+        var uptime = (process.uptime() > 10) ? process.uptime() + 'sec' : process.uptime() * 1000 + '\u03BCs';
+        var info = chalk.blue.bgWhite(' This task took ' + uptime + '. ');
+        var line = Array(Math.floor(info.length / 1.5)).join('-');
+        line = chalk.blue.bold('\n' + line + '\n');
+        console.log(line, info, line);
     }
 });

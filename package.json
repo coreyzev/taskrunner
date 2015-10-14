@@ -5,7 +5,7 @@
   "private": "true",
   "homepage": "http://www.zerve.com",
   "bin": {
-    "zerve" : "./index.js"
+    "zerve": "./index.js"
   },
   "repository": {
     "type": "git",
@@ -15,16 +15,16 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
-    "underscore" : "~1.8.3",
-    "minimist"   : "~1.2.0",
-    "findit"     : "~2.0.0",
-    "uglify-js"  : "~2.4.24",
-    "less"       : "~2.5.1",
-    "copy"       : "~0.1.1",
-    "watch"      : "~0.16.0",
-    "chalk"      : "~1.1.1",
-    "esprima"    : "~2.6.0"
+    "chalk": "~1.1.1",
+    "copy": "~0.1.1",
+    "esprima": "~2.6.0",
+    "findit": "~2.0.0",
+    "less": "~2.5.1",
+    "minimist": "~1.2.0",
+    "prompt": "^0.2.14",
+    "uglify-js": "~2.4.24",
+    "underscore": "~1.8.3",
+    "watch": "~0.16.0"
   },
-  "scripts": {
-  }
+  "scripts": {}
 }
