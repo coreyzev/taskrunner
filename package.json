@@ -1,6 +1,6 @@
 {
   "name": "taskrunner",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Taskrunner for projects more complex than a single page app",
   "private": "true",
   "homepage": "http://www.zerve.com",
