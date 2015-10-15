@@ -36,9 +36,9 @@ One of the below commands can be run at a time.
 
 Build: `build` or `b`
 
-Watch: `watch` or `w` - *still in development*
+Watch: `watch` or `w` - *still in development, but works*
 
-Deploy: `deploy` or `d` - *planned*
+Deploy: `deploy` or `d` - *still in development, but works*
 
 ###### Options
 
