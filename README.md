@@ -1,6 +1,6 @@
 # Zerve TaskRunner (to be named)
 
-**Version**: 0.1.3
+**Version**: 0.1.4
 
 * * *
 
@@ -15,7 +15,7 @@
 ##### Install this taskrunner:
 
 ```sh
-npm install git+ssh://bitbucket/zerveinc/taskrunner.git#v0.1.3 --save-dev
+npm install git+ssh://bitbucket/zerveinc/taskrunner.git#v0.1.4 --save-dev
 export PATH=$(npm bin):$PATH
 ```
 
