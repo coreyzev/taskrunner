@@ -15,7 +15,7 @@
 ##### Install this taskrunner:
 
 ```sh
-npm install git+ssh://bitbucket/zerveinc/taskrunner.git#v0.1.4 --save-dev
+npm install git+ssh://bitbucket/zerveinc/taskrunner.git --save-dev
 export PATH=$(npm bin):$PATH
 ```
 
