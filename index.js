@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
-var z      = require('./lib/environment'),
-    Config = require('./lib/config'),
-    Build  = require('./lib/build'),
-    Watch  = require('./lib/watch'),
-    chalk  = require('chalk'),
-    spawn   = require('child_process').spawn,
-    prompt = require('prompt');
+var z        = require('./lib/environment'),
+    Config   = require('./lib/config'),
+    Build    = require('./lib/build'),
+    Watch    = require('./lib/watch'),
+    chalk    = require('chalk'),
+    spawn    = require('child_process').spawn,
+    prompt   = require('prompt'),
+    notifier = require('node-notifier');
 
 var config = new Config(),
     build  = new Build(),
@@ -40,6 +41,7 @@ config.on('done', function() {
             watch.all(z.project);
             break;
         case 'deploy':
+            build.all();
             var schema = {
                 properties: {
                     aws_prefix: {
@@ -92,5 +94,13 @@ process.on('exit', function (exitCode) {
         var line = Array(Math.floor(info.length / 1.5)).join('-');
         line = chalk.blue.bold('\n' + line + '\n');
         console.log(line, info, line);
+        if (!z.params.s) {
+            notifier.notify({
+                'title'   : 'Taskrunner Finished',
+                'subtitle': 'task: '+ z.task,
+                'message' : 'Finished in ' + uptime,
+                'sound'   : 'Pop'
+            });
+        }
     }
 });

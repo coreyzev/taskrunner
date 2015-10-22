@@ -21,10 +21,10 @@
     "findit": "~2.0.0",
     "less": "~2.5.1",
     "minimist": "~1.2.0",
+    "node-notifier": "^4.3.1",
     "prompt": "^0.2.14",
     "uglify-js": "~2.4.24",
     "underscore": "~1.8.3",
     "watch": "~0.16.0"
-  },
-  "scripts": {}
+  }
 }
