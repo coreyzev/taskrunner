@@ -55,28 +55,30 @@ config.on('done', function() {
             prompt.start();
             prompt.get(schema, function (err, result) {
                 if (err) { process.exit(1); }
-                var prefix = 'prefix=' + result.aws_prefix;
-                var confirm = 'confirm=y';
-                var cap_cleanup = spawn('cap', ['deploy:cleanup', prefix, confirm], {stdio: 'inherit'});
-                console.log("\nplease wait while we use capistrano to deploy\n");
-                function cap_deploy_spawn () {
-                    var cap_deploy = spawn('cap', ['deploy', prefix, confirm], {stdio: 'inherit'});
-                    cap_deploy.on('close', function(code) {
+                if (result) {
+                    var prefix = 'prefix=' + result.aws_prefix;
+                    var confirm = 'confirm=y';
+                    var cap_cleanup = spawn('cap', ['deploy:cleanup', prefix, confirm], {stdio: 'inherit'});
+                    console.log("\nplease wait while we use capistrano to deploy\n");
+                    function cap_deploy_spawn () {
+                        var cap_deploy = spawn('cap', ['deploy', prefix, confirm], {stdio: 'inherit'});
+                        cap_deploy.on('close', function(code) {
+                            if (code) {
+                                console.log(chalk.red('There was an error with the deploy.'));
+                                process.exit(1);
+                            }
+                            console.log('\nThe deploy to aws.dev.' + result.aws_prefix + ' was successful.');
+                            process.exit(0);
+                        });
+                    };
+                    cap_cleanup.on('close', function(code) {
                         if (code) {
-                            console.log(chalk.red('There was an error with the deploy.'));
+                            console.log(chalk.red('There was an error with the cleanup.'));
                             process.exit(1);
                         }
-                        console.log('\nThe deploy to aws.dev.' + result.aws_prefix + ' was successful.');
-                        process.exit(0);
+                        cap_deploy_spawn();
                     });
-                };
-                cap_cleanup.on('close', function(code) {
-                    if (code) {
-                        console.log(chalk.red('There was an error with the cleanup.'));
-                        process.exit(1);
-                    }
-                    cap_deploy_spawn();
-                });
+                }
             });
             break;
         default:
