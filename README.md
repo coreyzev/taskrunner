@@ -1,6 +1,6 @@
-# Zerve TaskRunner (to be named)
+# TaskRunner (to be named)
 
-**Version**: 0.1.4
+**Version**: 0.1.4 (some features stable)
 
 * * *
 
@@ -116,14 +116,14 @@ defined in configuration.
 ## Issues?
 
 If you run into any issues, please go here and document them:
-[Zerve Taskrunner Issues](https://bitbucket.org/zerve_coreyholland/taskrunner/issues)
+--broken, to be fixed (in history)
 
 Please make sure your node version is up to date.
 
 ## Roadmap
 
 See feature plans & proposals here:
-[Proposals & Enhancements](https://bitbucket.org/zerveinc/taskrunner/issues?kind=proposal&kind=enhancement&sort=milestone)
+-- broken, to be fixed (in history)
 
 * * *
 
